@@ -12,7 +12,8 @@ import pl from "./locales/pl.json"
 const i18n = createI18n({
   locale: "en",
   fallbackLocale: "en",
-  messages: { pl, en },
+  legacy: false,
+  messages: { en, pl },
 })
 
 createApp(App).use(i18n).mount('#app')

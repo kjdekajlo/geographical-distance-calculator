@@ -1,14 +1,25 @@
 <template>
     <div class="points-container">
-        <DistancePoint @point-changed="setPoint($event, 'origin')" :text="'from'"/>
+        <DistancePoint @point-changed="setPoint($event, 'origin')" :text="from"/>
           <img class="arrow" src="../../assets/arrow.svg" />
-        <DistancePoint @point-changed="setPoint($event, 'destination')" :text="'to'"/>
+        <DistancePoint @point-changed="setPoint($event, 'destination')" :text="to"/>
     </div>
 </template>
 
 <script setup>
 import DistancePoint from './DistancePoint.vue'
 import { ref, computed, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+
+const from = computed(() => {
+  return t("distanceCalculator.text.origin")
+})
+
+const to = computed(() => {
+  return t("distanceCalculator.text.destination")
+})
 
 const nullPoint = {
   latitude: 0,

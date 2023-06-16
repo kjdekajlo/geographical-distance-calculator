@@ -1,6 +1,19 @@
 {
-  "main":
-      {
-          "hello": "Hello World!"
-      }
+  "homePage": {
+    "instructions": "Enter geographical coordinates of two points to calculate a distance between them.",
+    "result": {
+    "start": "These points are",
+    "end": " from each other."
+    }
+  },
+  "distanceCalculator": {
+    "text": {
+      "origin": "from",
+      "destination": "to"
+    }
+  },
+  "point": {
+    "latitude": "latitude",
+    "longtitude": "longtitude"
+  }
 }

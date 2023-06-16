@@ -1,15 +1,15 @@
 <template>
     <div class="distance-input-container">
-        <p class="label">{{ utils.capitalize(props.coordinateType) }}</p>
+        <p class="label">{{ utils.capitalize(labelName) }}</p>
         <div class="inputs" @keydown="preventMinus($event)">
           <input v-model="degree" type="number" min="0" :max="maxDegree" class="distance-input"/><label>°</label>
           <input v-model="minute" type="number" min="0" max="60" class="distance-input"/><label>'</label>
           <input v-model="second" type="number" min="0" max="60" class="distance-input"/><label>"</label>
         </div>
           <span class="directions" v-if="props.coordinateType">
-            <p :class="{'active': directionType === directions[0]}" @click="directionType = directions[0]">{{ directions[0] }}</p>
+            <p :class="{'selected': directionType === directions[0]}" @click="directionType = directions[0]">{{ directions[0] }}</p>
             <p>/</p>
-            <p :class="{'active': directionType === directions[1]}" @click="directionType = directions[1]">{{ directions[1] }}</p>
+            <p :class="{'selected': directionType === directions[1]}" @click="directionType = directions[1]">{{ directions[1] }}</p>
         </span>
     </div>
 </template>
@@ -17,20 +17,27 @@
 <script setup>
 import { ref, computed, onMounted, watch } from 'vue'
 import * as utils from '../../utils/utils'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const props = defineProps({
   coordinateType: {
     type: String,
-    required: true
+    required: false
   }
 })
 
-const degree = ref(0)
-const minute = ref(0)
-const second = ref(0)
-
-let directionType = ref('')
-let maxDegree = 0
+const labelName = computed(() => {
+  switch(props.coordinateType) {
+    case 'latitude':
+      return t("point.latitude")
+    case 'longtitude':
+      return t("point.longtitude")
+    default:
+      return ""
+  }
+})
 
 const setDirections = () => {
   switch(props.coordinateType) {
@@ -44,6 +51,13 @@ const setDirections = () => {
       break
   }
 }
+
+const degree = ref(0)
+const minute = ref(0)
+const second = ref(0)
+
+let directionType = ref('')
+let maxDegree = 0
 
 watch(degree, async (newValue, prevValue) => {
   if (newValue > maxDegree) {
@@ -156,7 +170,7 @@ $distance-input-color: #25326d;
       justify-self: start;
       column-gap: 5px;
 
-      .active {
+      .selected {
         font-weight: 600;
         text-decoration: underline;
       }

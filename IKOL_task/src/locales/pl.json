@@ -1,3 +1,19 @@
 {
-    
+  "homePage": {
+    "instructions": "Wprowadź współrzędne geograficzne dwóch punktów, aby obliczyć odległość między nimi.",
+    "result": {
+    "start": "Między tymi punktami jest",
+    "end": "."
+    }
+  },
+  "distanceCalculator": {
+    "text": {
+      "origin": "od",
+      "destination": "do"
+    }
+  },
+  "point": {
+    "latitude": "szerokość geo.",
+    "longtitude": "wysokość geo."
+  }
 }

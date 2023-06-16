@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "sass": "^1.63.3"
+  },
+  "dependencies": {
+    "vue-i18n": "^9.3.0-beta.19"
   }
 }

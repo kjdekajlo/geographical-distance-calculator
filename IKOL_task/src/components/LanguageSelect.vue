@@ -1,16 +1,19 @@
 <template>
     <div class="language-selector">
         <div class="languages">
-            <p :class="{'selected': true}" @click="changeLocale('en')">EN</p>
+            <p :class="{'selected': locale === 'en'}" @click="changeLocale('en')">EN</p>
             <p>/</p>
-            <p :class="{'selected': true}" @click="changeLocale('pl')">PL</p>
+            <p :class="{'selected': locale === 'pl'}" @click="changeLocale('pl')">PL</p>
         </div>
     </div>
 </template>
 <script setup>
+import { useI18n } from 'vue-i18n'
+
+const { locale } = useI18n()
 
 const changeLocale = (languageStr) => {
-  $i18n.locale = languageStr
+  locale.value = languageStr
 }
 </script>
 
@@ -23,13 +26,13 @@ const changeLocale = (languageStr) => {
       padding: 1.5em 2em 0;
 
       p {
+        user-select: none;
+        cursor: pointer;
         transition: 0.2s;
 
         &.selected {
           text-decoration: underline;
           font-weight: 600;
-          user-select: none;
-          cursor: pointer;
           transition: 0.2s;
         }
       }
