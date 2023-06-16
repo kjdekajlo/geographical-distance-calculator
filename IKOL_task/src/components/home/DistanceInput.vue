@@ -2,9 +2,9 @@
     <div class="distance-input-container">
         <p class="label">{{ utils.capitalize(labelName) }}</p>
         <div class="inputs" @keydown="preventMinus($event)">
-          <input v-model="degree" type="number" min="0" :max="maxDegree" class="distance-input"/><label>°</label>
-          <input v-model="minute" type="number" min="0" max="60" class="distance-input"/><label>'</label>
-          <input v-model="second" type="number" min="0" max="60" class="distance-input"/><label>"</label>
+          <label><input v-model="degree" name="degree" type="number" min="0" :max="maxDegree" class="distance-input"/>°</label>
+          <label><input v-model="minute" name="minute" type="number" min="0" max="60" class="distance-input"/>'</label>
+          <label><input v-model="second" name="second" type="number" min="0" max="60" class="distance-input"/>"</label>
         </div>
           <span class="directions" v-if="props.coordinateType">
             <p :class="{'selected': directionType === directions[0]}" @click="directionType = directions[0]">{{ directions[0] }}</p>
@@ -142,8 +142,9 @@ $distance-input-color: #25326d;
 
   .distance-input-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
     justify-items: center;
+    align-items: center;
     column-gap: 1em;
     color: $distance-input-color;
 
@@ -154,6 +155,10 @@ $distance-input-color: #25326d;
     .inputs {
       display: flex;
       column-gap: 5px;
+
+      label {
+        display: inline-flex;
+      }
 
       .distance-input {
         border-radius: 5px;

@@ -11,7 +11,3 @@ import HomePage from './components/home/HomePage.vue'
     <HomePage />
   </main>
 </template>
-
-<style lang="scss" scoped>
-  
-</style>

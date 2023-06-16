@@ -81,10 +81,26 @@ watch(distance, async (newDistance) => {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 6%;
+    row-gap: 2em;
+    width: 100%;
 
     .arrow {
       height: 50px;
       margin-top: 40px;
     }
   }
+
+  @media screen and (max-width: 1000px) {
+    .points-container {
+      flex-direction: column;
+
+      .arrow {
+        transform: rotate(90deg);
+      }
+    }
+  }
+
 </style>

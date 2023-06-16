@@ -29,6 +29,7 @@ const distanceKilometers = computed(() => {
     align-items: center;
     row-gap: 5em;
     font-weight: 200;
+    padding: 1.5em 2em 0;
 
     p {
       font-size: 1.75em;
