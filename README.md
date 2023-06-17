@@ -10,6 +10,9 @@ Available in Polish and English.
 
 ![image](https://github.com/kjdekajlo/geographical-distance-calculator/assets/44409389/b58a3f24-ef25-410c-bad2-a0962e77e774)
 
+```Tech-stack```
+Vue 3, SCSS, JavaScript
+
 
 ```Setup```
 
