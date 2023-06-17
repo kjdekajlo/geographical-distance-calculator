@@ -2,9 +2,10 @@
   "homePage": {
     "instructions": "Enter geographical coordinates of two points to calculate a distance between them.",
     "result": {
-    "start": "These points are",
-    "end": " from each other."
-    }
+      "start": "These points are",
+      "end": " from each other."
+      },
+    "error": "The distance cannot be calculated without an API - please make sure it is running. (link in readme.md file)"
   },
   "distanceCalculator": {
     "text": {

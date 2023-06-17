@@ -1,8 +1,9 @@
 <template>
     <div class="home-page">
       <p class="instructions">{{ t("homePage.instructions") }}</p>
-      <DistanceCalculator @distance-changed="distanceMeters = $event"/>
-      <p class="result">{{ t("homePage.result.start") }} {{ utils.shorten(distanceKilometers) }} km / {{ utils.shorten(distanceMeters) }} m{{ t("homePage.result.end") }}</p>
+      <DistanceCalculator @api-error="apiError = true" @distance-changed="setDistance($event)" />
+      <p v-if="apiError" class="error">{{ t("homePage.error") }}</p>
+      <p v-else class="result">{{ t("homePage.result.start") }} {{ utils.shorten(distanceKilometers) }} km / {{ utils.shorten(distanceMeters) }} m{{ t("homePage.result.end") }}</p>
     </div>
 </template>
 
@@ -14,7 +15,15 @@ import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
 
+const apiError = ref(false)
+
 const distanceMeters = ref(0)
+
+const setDistance = (distance) => {
+  distanceMeters.value = distance
+  apiError.value = false
+}
+
 
 const distanceKilometers = computed(() => {
   return utils.metersToKilometers(distanceMeters.value)
@@ -37,6 +46,11 @@ const distanceKilometers = computed(() => {
 
       &.instructions {
         margin-top: 3em;
+      }
+
+      &.error {
+        font-size: 1.5em;
+        color: rgb(192, 61, 61);
       }
     }
   }

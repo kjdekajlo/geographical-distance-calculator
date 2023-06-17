@@ -1,10 +1,11 @@
 {
   "homePage": {
     "instructions": "Wprowadź współrzędne geograficzne dwóch punktów, aby obliczyć odległość między nimi.",
-    "result": {
-    "start": "Między tymi punktami jest",
-    "end": "."
-    }
+      "result": {
+      "start": "Między tymi punktami jest",
+      "end": "."
+      },
+      "error": "Odległość nie może zostać obliczona bez API - upewnij się, że jest poprawnie odpalone. (link w pliku readme.md)"
   },
   "distanceCalculator": {
     "text": {

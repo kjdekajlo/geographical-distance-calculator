@@ -47,7 +47,7 @@ const distanceData = computed(() => {
     }
 })
 
-const emit = defineEmits(['distance-changed'])
+const emit = defineEmits(['distance-changed', 'api-error'])
 
 let distance = ref(0)
 
@@ -67,7 +67,9 @@ watch(distanceData, async (newDistanceData) => {
       const resultObj = JSON.parse(result)
       distance.value = resultObj.d
     })
-    .catch(error => console.log('Error!', error))
+    .catch(() =>  {
+      emit('api-error')
+    })
 })
 
 watch(distance, async (newDistance) => {
