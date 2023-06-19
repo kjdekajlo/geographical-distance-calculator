@@ -95,7 +95,7 @@ watch(distance, async (newDistance) => {
     }
   }
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 1300px) {
     .points-container {
       flex-direction: column;
 
@@ -104,5 +104,4 @@ watch(distance, async (newDistance) => {
       }
     }
   }
-
 </style>

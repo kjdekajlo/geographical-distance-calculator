@@ -1,4 +1,4 @@
-
+/* 
 :root {
   --vt-c-white: #ffffff;
   --vt-c-white-soft: #f8f8f8;
@@ -34,7 +34,7 @@
   --color-text: var(--vt-c-text-light-1);
 
   --section-gap: 160px;
-}
+} 
 
 /* SYSTEM DARK MODE
 /* @media (prefers-color-scheme: dark) {
@@ -50,18 +50,3 @@
     --color-text: var(--vt-c-text-dark-2);
   }
 } */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
-
-body {
-  padding: 2em;
-  min-height: 100vh;
-  color: var(--color-text);
-  background: var(--color-background);
-  transition: color 0.5s, background-color 0.5s;
-  line-height: 1.6;
-  font-family: 'Inter', sans-serif;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}

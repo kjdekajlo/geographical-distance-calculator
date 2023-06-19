@@ -38,4 +38,12 @@ const changeLocale = (languageStr) => {
       }
     }
   }
+
+  @media screen and (max-width: 1300px) {
+    .language-selector {
+      .languages {
+        padding: 1.5em 2em 0;
+      }
+    }
+  }
 </style>
